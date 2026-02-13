@@ -1,43 +1,40 @@
-# Investigación: IAs Gratuitas para Resúmenes de Registros Extensos
+# Inteligencia de Datos con Llama 3.1: Bases de Datos y Libros
 
-Esta investigación se centra en identificar herramientas y modelos de IA que permitan procesar y resumir grandes volúmenes de texto (registros, logs, documentos extensos) sin costo.
+Para proyectos de escala industrial que requieren resumir bases de datos completas o libros de millones de palabras, se deben aplicar arquitecturas avanzadas.
 
-## 1. Herramientas Web Gratuitas (SaaS)
+## 1. Análisis de Bases de Datos (SQL-to-Summary)
 
-| Herramienta | Límite Aproximado | Idiomas | Registro Req. | Características Clave |
-| :--- | :--- | :--- | :--- | :--- |
-| **Decopy AI** | Alto (PDF/Video) | Multilingüe | No (Básico) | Resúmenes precisos, puntos clave y mapas mentales. |
-| **QuillBot** | ~600-1200 palabras* | Multilingüe | Opcional | Modos "Oraciones clave" y "Párrafo". Muy intuitivo. |
-| **Resoomer** | Ilimitado (Texto) | Multilingüe | No | Filtra ideas principales automáticamente. Ideal para artículos. |
-| **Summarizer.org**| Hasta 2000 palabras*| 11 idiomas | No | Permite ajustar la longitud del resumen. |
-| **TLDR This** | 5 resúmenes/mes* | Inglés/Esp | Sí | Muy eficaz pero limitado en su versión gratuita. |
-| **ChatGPT (Free)**| ~128k context | Multilingüe | Sí | Versátil; requiere "chunking" manual para registros excesivos. |
+Llama 3.1 no "lee" el archivo `.db` directamente de forma eficiente. El flujo correcto es:
 
-*\*Los límites pueden variar según actualizaciones de la plataforma.*
+### A. Extracción de Esquema (Metadata)
+Primero, extrae el esquema de la DB para que Llama entienda la estructura:
+```python
+# Ejemplo: Obtener tablas y columnas
+# "SELECT name FROM sqlite_master WHERE type='table';"
+```
+### B. Estrategia "Dynamic Schema Selection"
+Si la base de datos tiene cientos de tablas, no envíes todo el esquema. Pide a Llama que elija las tablas relevantes basadas en la pregunta del usuario, y luego genera el resumen solo de esas.
 
-## 2. Modelos Open Source (Uso Local)
+### C. Generación de Resumen de Datos
+Envía muestras de datos (ej. las primeras 5 filas de tablas clave) junto con el esquema:
+> "Dado este esquema SQL y estas filas de ejemplo, resume de qué trata esta base de datos y cuáles son las entidades principales."
 
-Para registros extremadamente sensibles o de gran volumen (Gb/Tb), se recomienda el uso local con hardware adecuado.
+## 2. Procesamiento de Libros (> 1 Millón de Tokens)
 
-| Modelo | Ventana de Contexto | Licencia | Ideal para... |
-| :--- | :--- | :--- | :--- |
-| **DeepSeek-V3 / R1** | 128,000 tokens | MIT | Razonamiento complejo y análisis de logs extensos. |
-| **Qwen3-30B-A3B** | 256,000 tokens | Apache 2.0 | Excelente equilibrio entre velocidad y capacidad de contexto. |
-| **Llama 4 Scout** | 10M+ tokens | Llama 3.1 | Procesamiento de libros enteros o bases de datos completas. |
-| **Mistral NeMo** | 128,000 tokens | Apache 2.0 | Eficiencia en hardware de consumo medio (NVIDIA RTX). |
+Aunque Llama 3.1 tiene 128k de contexto, un libro técnico puede superarlo.
 
-### Requerimientos de Hardware (Estimados)
-- **Modelos Pequeños (8B/14B):** Mínimo 16GB RAM o 8GB VRAM (GPU).
-- **Modelos Medios (30B-70B):** Mínimo 32GB-64GB RAM o 24GB VRAM.
+### Arquitectura Recomendada: RAG (Retrieval Augmented Generation)
+En lugar de meter todo el libro al prompt (que requeriría >100GB de RAM), usa este flujo:
+1. **Chunking:** Divide el libro en fragmentos de 500-1000 palabras.
+2. **Embeddings:** Convierte fragmentos en vectores numéricos.
+3. **Vector Database:** Guarda los vectores en una DB local (ej. ChromaDB o FAISS).
+4. **Retrieval:** Cuando pidas un resumen de un capítulo, el sistema busca los fragmentos más relevantes y se los pasa a Llama.
 
-## 3. Recomendaciones según el Tipo de Registro
+## 3. Variantes Especializadas
+Para evitar RAG y usar "Memoria Pura", existen versiones de Llama modificadas:
+- **Llama-3-Gradient-1M:** Una versión entrenada específicamente para soportar 1 millón de tokens de contexto.
+- **Hardware:** Para 1M de tokens sin RAG, necesitarás hardware de servidor (A100/H100) o configuraciones de cuantización agresivas.
 
-- **Logs de Servidor / Auditoría:** Usar **DeepSeek R1** localmente (privacidad total) o **Decopy AI** si los datos no son sensibles.
-- **Documentos Científicos (PDF):** **Mapify** o **Decopy AI** por su capacidad de generar mapas mentales.
-- **Registros de Chat / Conversaciones:** **QuillBot** o **ChatGPT** (vía API gratuita si se dispone de créditos).
-
-## 4. Estrategias para Textos "Infinitos"
-
-Si el registro supera el límite de la IA (Context Window):
-1. **Recursive Summarization:** Dividir el texto en partes, resumir cada parte, y luego resumir los resúmenes.
-2. **LangChain / RAG:** Implementar una base de datos vectorial para que la IA consulte solo las partes relevantes del registro.
+## 4. Resumen Ejecutivo de Implementación
+- **Para Bases de Datos:** Usa **Text-to-SQL** (Llama genera la consulta, tú la ejecutas, Llama resume el resultado).
+- **Para Libros:** Usa **RAG** con Ollama y LangChain para mantener la precisión y el bajo consumo de recursos.

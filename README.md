@@ -1,11 +1,17 @@
-# Proyecto de Investigación: IAs para Resúmenes Extensos
+# Proyecto: Inteligencia de Datos y Resúmenes con Llama 3.1
 
-Este repositorio contiene una investigación detallada sobre las mejores herramientas de Inteligencia Artificial gratuitas y abiertas para el resumen de registros de gran escala.
+Este repositorio se enfoca en el uso avanzado de **Llama 3.1** para la extracción de inteligencia y resúmenes de fuentes masivas de información.
 
-## Resumen Ejecutivo
-Tras el análisis, se destacan las siguientes opciones:
-- **Mejor Herramienta Web:** Decopy AI y Resoomer por su flexibilidad con textos largos.
-- **Mejor Modelo Open Source:** DeepSeek-V3 y Qwen3 por sus amplias ventanas de contexto (128k-256k tokens).
-- **Mejor para Privacidad:** Uso local de Llama o Mistral mediante herramientas como Ollama o LM Studio.
+## Áreas de Aplicación
+- **Bases de Datos:** Análisis de esquemas SQL y generación de resúmenes ejecutivos de registros.
+- **Grandes Documentos:** Procesamiento de libros y manuales extensos mediante arquitecturas RAG.
+- **Logs de Sistema:** Resúmenes técnicos de registros de auditoría de gran escala.
 
-Para ver el reporte completo, consulta: [investigacion_ias.md](./investigacion_ias.md)
+## Guías de Implementación
+1. [Guía Técnica de Resúmenes y DB](./investigacion_ias.md)
+2. [Estrategias de Contexto (128k a 1M tokens)](./investigacion_ias.md#procesamiento-de-libros--1-millon-de-tokens)
+
+## Requisitos
+- **Ollama** (v0.3.0 o superior para Llama 3.1).
+- **Python 3.10+**.
+- GPU con 8GB+ VRAM (Recomendado).
