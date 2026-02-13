@@ -12,6 +12,7 @@ Sistema local y gratuito para el análisis de inteligencia y resumen de grandes 
 - `data/`: Carpeta para archivos de entrada (.pdf, .txt, .db).
 - `src/db_analyzer.py`: Analizador de esquemas y datos de DB.
 - `src/book_processor.py`: Procesador de textos largos y libros.
+- `src/setup_sample_db.py`: Generador de base de datos de ejemplo (SQLite).
 - `requirements.txt`: Dependencias de Python.
 - `GUIA_PASOS.md`: Manual de usuario.
 
@@ -103,15 +104,12 @@ if __name__ == "__main__":
 
 ---
 
-## 7. GUÍA DE PASOS RÁPIDOS
-1. **Instalar Ollama:** Descargar de ollama.com (Importante: El comando `ollama` falló previamente, asegurar que esté instalado y en el PATH).
-2. **Setup Python:** `pip install -r requirements.txt`.
-3. **Crear Modelo:** `ollama create llama3.1-128k -f config/Modelfile`.
-4. **Ejecutar:** Configura las rutas en los scripts de `src/` y corre con `python src/nombre_script.py`.
+## 8. VERIFICACIÓN Y HARDWARE
+- **Consumo de VRAM:** El contexto de 128k es exigente. Si hay fallos de memoria, reduce el `num_ctx` en el `Modelfile`.
+- **Ejecución Directa:**
+  - Analizador DB: `python src/db_analyzer.py`
+  - Procesamiento Libros: `python src/book_processor.py`
+  - Crear Datos Prueba: `python src/setup_sample_db.py`
 
 ---
-
-## 8. INVESTIGACIÓN Y ESTRATEGIAS
-- **Bases de Datos:** Se usa extracción de metadatos para evitar saturar el contexto con datos crudos.
-- **Libros > 1M tokens:** Implementar **RAG** (Retrieval Augmented Generation) dividiendo el libro en fragmentos vectorizados.
-- **Hardware:** Llama 3.1 8B requiere ~8-12GB VRAM para el contexto de 128k.
+*Documentación finalizada y lista para transferencia.*
