@@ -26,21 +26,22 @@ Coloca los archivos que deseas analizar o configura tus conexiones:
 - **Bases de Datos (PostgreSQL):** No necesitas copiar archivos. Asegúrate de tener las credenciales (Host, Usuario, Password, DB Name).
 - **Libros/Documentos:** Copia tus archivos `.pdf` o `.txt` a `data/`.
 
-## 4. Ejecución del Analizador de DB (PostgreSQL)
+## 4. Ejecución del Procesador de Textos Grandes (Libros)
 
-Para probar el analizador, abre `src/db_analyzer.py` y configura tu URL de conexión:
+Para resumir un texto largo o libro:
+1. Coloca tu archivo (ej. `mi_libro.txt`) en la carpeta `data/`.
+2. Abre `src/book_processor.py` y configura la ruta:
+   ```python
+   processor = LlamaBookProcessor()
+   print(processor.summarize_large_text('data/mi_libro.txt'))
+   ```
+3. Ejecútalo:
+   ```bash
+   python src/book_processor.py
+   ```
 
-```python
-# Formato: postgresql://usuario:password@host:puerto/nombre_db
-db_url = "postgresql://postgres:mi_password@localhost:5432/mi_base_de_datos"
-analyzer = LlamaDBAnalyzer(db_url)
-print(analyzer.summarize_db())
-```
-
-Luego ejecútalo:
-```bash
-python src/db_analyzer.py
-```
+## 5. Ejecución del Analizador de DB (PostgreSQL)
+... (continúa igual)
 
 ## Próximos Pasos Sugeridos
 - [ ] Implementar el procesador de libros con RAG.
