@@ -32,11 +32,18 @@ class LlamaBookProcessor:
         if not os.path.exists(file_path):
             return "Error: El archivo no existe."
 
-        # Leer contenido completo (asumiendo que cabe en 128k para esta versión simple)
-        with open(file_path, 'r', encoding='utf-8') as f:
-            content = f.read()
-
-        prompt = f"Resume el siguiente texto de manera exhaustiva, destacando los puntos clave y conclusiones:\n\n{content}"
+        # Prompt especializado si parece ser un log de datos
+        if "ID_TRANSACCION" in content or "|" in content:
+            prompt = (
+                "Analiza el siguiente registro de transacciones. Proporciona:\n"
+                "1. Un resumen ejecutivo del volumen de ventas.\n"
+                "2. Los 3 productos más vendidos.\n"
+                "3. La región con mayor actividad.\n"
+                "4. Cualquier anomalía o tendencia notable (ej. métodos de pago preferidos).\n\n"
+                f"Datos:\n{content}"
+            )
+        else:
+            prompt = f"Resume el siguiente texto de manera exhaustiva, destacando los puntos clave y conclusiones:\n\n{content}"
         
         response = ollama.chat(
             model=self.model,
