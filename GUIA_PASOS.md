@@ -22,14 +22,22 @@ Para procesar registros y libros extensos, necesitamos configurar una ventana de
 
 ## 3. Preparación de Datos
 
-Coloca los archivos que deseas analizar en la carpeta `data/`:
-- **Bases de Datos:** Copia tus archivos `.db` (SQLite) a `data/`.
+Coloca los archivos que deseas analizar o configura tus conexiones:
+- **Bases de Datos (PostgreSQL):** No necesitas copiar archivos. Asegúrate de tener las credenciales (Host, Usuario, Password, DB Name).
 - **Libros/Documentos:** Copia tus archivos `.pdf` o `.txt` a `data/`.
 
-## 4. Ejecución del Analizador de DB
+## 4. Ejecución del Analizador de DB (PostgreSQL)
 
-Para probar el analizador de bases de datos, abre el archivo `src/db_analyzer.py` y asegúrate de que la ruta a tu base de datos sea correcta, luego ejecútalo:
+Para probar el analizador, abre `src/db_analyzer.py` y configura tu URL de conexión:
 
+```python
+# Formato: postgresql://usuario:password@host:puerto/nombre_db
+db_url = "postgresql://postgres:mi_password@localhost:5432/mi_base_de_datos"
+analyzer = LlamaDBAnalyzer(db_url)
+print(analyzer.summarize_db())
+```
+
+Luego ejecútalo:
 ```bash
 python src/db_analyzer.py
 ```

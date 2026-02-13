@@ -26,7 +26,8 @@ class LlamaDBAnalyzer:
         return response['message']['content']
 
 if __name__ == "__main__":
-    # Ejemplo con SQLite local
-    # analyzer = LlamaDBAnalyzer('sqlite:///data/my_database.db')
+    # Ejemplo con PostgreSQL
+    # db_url = "postgresql://usuario:password@localhost:5432/mi_base_de_datos"
+    # analyzer = LlamaDBAnalyzer(db_url)
     # print(analyzer.summarize_db())
-    print("Módulo DB Analyzer cargado.")
+    print("Módulo DB Analyzer cargado y listo para PostgreSQL.")
