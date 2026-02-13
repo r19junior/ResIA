@@ -1,0 +1,51 @@
+ID_TRANSACCION|FECHA|PRODUCTO|CATEGORIA|CANTIDAD|PRECIO_UNITARIO|REGION|METODO_PAGO
+TRX-1001|2024-01-15|Laptop Pro 15|Electrónica|1|1200.00|Norte|Tarjeta
+TRX-1002|2024-01-15|Monitor 24"|Electrónica|2|180.50|Sur|Transferencia
+TRX-1003|2024-01-16|Silla Ergonómica|Muebles|1|250.00|Centro|Efectivo
+TRX-1004|2024-01-16|Teclado Mecánico|Accesorios|5|85.00|Norte|Tarjeta
+TRX-1005|2024-01-17|Mouse Inalámbrico|Accesorios|10|25.00|Este|Tarjeta
+TRX-1006|2024-01-17|Escritorio Madera|Muebles|1|450.00|Oeste|Transferencia
+TRX-1007|2024-01-18|Impresora Láser|Electrónica|2|320.00|Norte|Tarjeta
+TRX-1008|2024-01-18|Cable HDMI 2m|Accesorios|15|12.99|Sur|Efectivo
+TRX-1009|2024-01-19|Auriculares Noise Cancelling|Electrónica|3|150.00|Centro|Tarjeta
+TRX-1010|2024-01-19|Lámpara LED|Hogar|8|45.00|Norte|Efectivo
+TRX-1011|2024-01-20|Disco Duro Externo 2TB|Electrónica|4|95.00|Este|Transferencia
+TRX-1012|2024-01-20|Mochila para Laptop|Accesorios|6|55.00|Oeste|Tarjeta
+TRX-1013|2024-01-21|Smartphone X1|Electrónica|1|899.00|Norte|Tarjeta
+TRX-1014|2024-01-21|Funda Tablet|Accesorios|12|15.00|Sur|Efectivo
+TRX-1015|2024-01-22|Webcam 4K|Electrónica|5|110.00|Centro|Transferencia
+TRX-1016|2024-01-22|Adaptador USB-C|Accesorios|20|18.50|Norte|Tarjeta
+TRX-1017|2024-01-23|Soporte Monitor|Muebles|3|65.00|Este|Efectivo
+TRX-1018|2024-01-23|Batería Portátil|Accesorios|7|40.00|Oeste|Tarjeta
+TRX-1019|2024-01-24|Tablet Air|Electrónica|2|450.00|Norte|Transferencia
+TRX-1020|2024-01-24|Micrófono Podcast|Electrónica|1|130.00|Sur|Tarjeta
+TRX-1021|2024-01-25|Router WiFi 6|Electrónica|4|120.00|Centro|Efectivo
+TRX-1022|2024-01-25|Alfombrilla XL|Accesorios|10|22.00|Norte|Tarjeta
+TRX-1023|2024-01-26|Smartwatch Sport|Electrónica|6|199.00|Este|Transferencia
+TRX-1024|2024-01-26|Cargador Carga Rápida|Accesorios|15|29.00|Oeste|Tarjeta
+TRX-1025|2024-01-27|Altavoz Bluetooth|Electrónica|3|85.00|Norte|Efectivo
+TRX-1026|2024-01-27|SSD 1TB NVMe|Electrónica|8|115.00|Sur|Tarjeta
+TRX-1027|2024-01-28|Ventilador CPU|Accesorios|5|45.00|Centro|Transferencia
+TRX-1028|2024-01-28|Pasta Térmica|Accesorios|25|8.00|Norte|Efectivo
+TRX-1029|2024-01-29|Cámara Seguridad|Hogar|4|60.00|Este|Tarjeta
+TRX-1030|2024-01-29|Bombilla Inteligente|Hogar|12|14.00|Oeste|Tarjeta
+TRX-1031|2024-01-30|Hub USB 3.0|Accesorios|10|35.00|Norte|Transferencia
+TRX-1032|2024-01-30|Soporte Portátil|Accesorios|6|28.00|Sur|Efectivo
+TRX-1033|2024-01-31|Teclado Numérico|Accesorios|4|18.00|Centro|Tarjeta
+TRX-1034|2024-01-31|Monitor Gaming 144Hz|Electrónica|1|350.00|Norte|Transferencia
+TRX-1035|2024-02-01|Kit Limpieza Pantalla|Accesorios|15|10.00|Este|Efectivo
+TRX-1036|2024-02-01|Joystick PC|Accesorios|3|55.00|Oeste|Tarjeta
+TRX-1037|2024-02-02|Filtro Privacidad|Accesorios|2|40.00|Norte|Tarjeta
+TRX-1038|2024-02-02|Organizador Cables|Accesorios|20|5.50|Sur|Transferencia
+TRX-1039|2024-02-03|Luz de Anillo|Hogar|5|35.00|Centro|Efectivo
+TRX-1040|2024-02-03|Escáner Documentos|Electrónica|1|210.00|Norte|Tarjeta
+TRX-1041|2024-02-04|Memoria RAM 16GB|Electrónica|4|75.00|Este|Tarjeta
+TRX-1042|2024-02-04|Tarjeta SD 128GB|Accesorios|10|22.00|Oeste|Efectivo
+TRX-1043|2024-02-05|UPS 1500VA|Electrónica|2|180.00|Norte|Transferencia
+TRX-1044|2024-02-05|Cable Ethernet 5m|Accesorios|18|11.00|Sur|Tarjeta
+TRX-1045|2024-02-06|Reposapiés|Muebles|3|45.00|Centro|Efectivo
+TRX-1046|2024-02-06|Estante Pared|Muebles|4|30.00|Norte|Tarjeta
+TRX-1047|2024-02-07|Mini PC|Electrónica|1|420.00|Este|Transferencia
+TRX-1048|2024-02-07|Lector Tarjetas|Accesorios|6|15.00|Oeste|Tarjeta
+TRX-1049|2024-02-08|Auriculares In-Ear|Electrónica|9|25.00|Norte|Efectivo
+TRX-1050|2024-02-08|Protector Sobretensión|Hogar|10|35.00|Sur|Tarjeta

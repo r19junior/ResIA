@@ -6,3 +6,4 @@ langchain-ollama
 chromadb
 pypdf
 psycopg2-binary
+flask

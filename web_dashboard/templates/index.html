@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Llama Intelligence Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Llama 3.1 Intelligence</h1>
+            <p>Análisis profundo de registros y bases de datos con IA Local</p>
+        </header>
+
+        <main>
+            <section class="card upload-section">
+                <h2>Cargar Documento</h2>
+                <p>Sube archivos .txt o .pdf para obtener un resumen inteligente.</p>
+                <form id="uploadForm">
+                    <div class="drop-zone" id="dropZone">
+                        <span class="drop-zone__prompt">Suelte el archivo aquí o haga clic para subir</span>
+                        <input type="file" name="file" id="fileInput" class="drop-zone__input">
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="btnSummarize">Generar Resumen</button>
+                </form>
+            </section>
+
+            <section class="card results-section" id="resultsCard" style="display: none;">
+                <h2>Resultado del Análisis</h2>
+                <div id="loader" class="loader" style="display: none;"></div>
+                <div id="summaryResult" class="summary-text"></div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Llama Data Intelligence Project</p>
+        </footer>
+    </div>
+    <script src="{{ url_for('static', filename='js/upload.js') }}"></script>
+</body>
+</html>

@@ -11,6 +11,10 @@ Este repositorio se enfoca en el uso avanzado de **Llama 3.1** para la extracci�
 1. [Guía Técnica de Resúmenes y DB](./investigacion_ias.md)
 2. [Estrategias de Contexto (128k a 1M tokens)](./investigacion_ias.md#procesamiento-de-libros--1-millon-de-tokens)
 
+## Documentación Completa
+Para una visión detallada de la arquitectura, módulos y uso, consulta:
+- [Documentación Técnica Completa](./DOCUMENTACION_SISTEMA.md)
+
 ## Requisitos
 - **Ollama** (v0.3.0 o superior para Llama 3.1).
 - **Python 3.10+**.

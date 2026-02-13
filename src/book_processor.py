@@ -32,6 +32,18 @@ class LlamaBookProcessor:
         if not os.path.exists(file_path):
             return "Error: El archivo no existe."
 
+        # Leer contenido
+        if file_path.endswith('.pdf'):
+            loader = PyPDFLoader(file_path)
+            docs = loader.load()
+            content = "\n".join([doc.page_content for doc in docs])
+        else:
+            with open(file_path, 'r', encoding='utf-8') as f:
+                content = f.read()
+
+        if not content:
+            return "Error: No se pudo extraer texto del archivo o el archivo está vacío."
+
         # Prompt especializado si parece ser un log de datos
         if "ID_TRANSACCION" in content or "|" in content:
             prompt = (
@@ -53,6 +65,6 @@ class LlamaBookProcessor:
 
 if __name__ == "__main__":
     # Ejemplo de uso
-    # processor = LlamaBookProcessor()
-    # print(processor.summarize_large_text('data/libro.txt'))
+    processor = LlamaBookProcessor()
+    print(processor.summarize_large_text('data/mi_libro.txt'))
     print("Módulo Book Processor cargado. Listo para resumir textos grandes.")
